@@ -29,7 +29,7 @@ pipeline{
             }
         } 
         stage('sonarqube analysis'){
-            setps{
+            steps{
                 scripts{
                 withSonarQubeEnv(credentialsId: 'jenkins-sonar-token') {
                     bat 'mvn clean package sonar:sonar'
