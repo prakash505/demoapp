@@ -7,11 +7,11 @@ pipeline{
         stage('Git Checkout'){
             
             steps{
-                
-                script{
-                    
-                    
+                 git branch: 'main', url: 'https://github.com/prakash505/demoapp.git'    
+              
+                          
                 }
             }
         }
+    }    
        
