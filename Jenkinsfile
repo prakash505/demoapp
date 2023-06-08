@@ -43,5 +43,6 @@ pipeline{
             steps{
                 waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar-token'
             }
-  }  
-}    
+          }  
+        }  
+}
