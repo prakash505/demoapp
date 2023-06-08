@@ -30,7 +30,7 @@ pipeline{
         } 
         stage('sonarqube analysis'){
             steps{
-                script{
+                
                 withSonarQubeEnv(credentialsId: 'jenkins-sonar-token') {
                     bat 'mvn clean package sonar:sonar'
                     
@@ -38,13 +38,13 @@ pipeline{
             }
         }
      
-    } 
+    
         stage('quality gates'){
             steps{
                 waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar-token'
             }
           }  
-        }  
+        
     stage('upload war file to nexus'){
         steps{
             nexusArtifactUploader artifacts: 
@@ -62,9 +62,10 @@ pipeline{
                 protocol: 'http', 
                 repository: 'demoapp-release',
                 version: '1.0.0'
-        }
+           }
         }
     }
+}
    
 
 
