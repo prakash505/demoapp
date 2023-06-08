@@ -39,6 +39,9 @@ pipeline{
         }
      
     } 
-   
+        stage('quality gates'){
+            steps{
+                waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar-token'
+            }
   }  
 }    
